@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from app.database import get_db
+from app.storage import get_db, get_publisher
 from app.services import UsageService
 from app.models import MessageModel, SendModel
 
@@ -13,8 +13,8 @@ async def message(data: MessageModel, db=Depends(get_db)):
 
 
 @router.post("/send")
-async def send(data: SendModel):
-    return data
+async def send(data: SendModel, publisher=Depends(get_publisher)):
+    return DeviceService(publisher).switch(data)
 
 
 @router.get("/report")

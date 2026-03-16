@@ -19,5 +19,7 @@ def migrate(db):
     )
 
 
-def destroy(db):
+def destroy(db, force=False):
+    assert force or settings.TEST, "Do not drop the production database."
     db.delete_table(f'symphonics-test.{settings.DB_DATASET}.usage')
+

@@ -15,4 +15,5 @@ BACKEND_URL = "http://localhost:8000"
 DEBUG = true
 GOOGLE_APPLICATION_CREDENTIALS = ".gcp-credentials.json"
 DB_DATASET = "dev"
+PUBSUB_TOPIC = "send_command"
 TEST = false

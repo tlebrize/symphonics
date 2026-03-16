@@ -3,9 +3,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app import init
-from app.database import get_db
+from app.storage import get_db, get_publisher
 from app.schema import migrate, destroy
-from app.services import UsageService
+from app.services import UsageService, DeviceService
 
 
 @pytest.fixture()
@@ -36,3 +36,11 @@ def db_client():
 @pytest.fixture()
 def usage_service(db_client):
     return UsageService(db_client)
+
+@pytest.fixture(scope="session", autouse=True)
+def publisher_client():
+    return get_publisher()
+
+@pytest.fixture()
+def device_service(publisher_client):
+    return DeviceService(publisher_client)

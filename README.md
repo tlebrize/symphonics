@@ -5,7 +5,7 @@
 - [x] router
 - [x] gcp setup
 - [x] database
-- [ ] pub/sub
+- [x] pub/sub
 - [ ] report
 - [ ] benchmarks
 - [ ] optimisations
