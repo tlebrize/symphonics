@@ -21,3 +21,17 @@ def event_loop(request):
     loop = asyncio.get_event_loop_policy().new_event_loop()
     yield loop
     loop.close()
+
+
+@pytest.fixture()
+def message_fixture():
+    return {
+        "bizCode": "string",
+        "bizData": {
+            "devId": "string",
+            "dataId": "string",
+            "productId": "string",
+            "properties": [{"code": "temp_interior", "dpId": 0, "time": 0, "value": 0}],
+        },
+        "ts": 0,
+    }
