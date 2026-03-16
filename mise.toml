@@ -1,0 +1,12 @@
+[tools]
+python = "3.13"
+uv = "latest"
+
+[tasks]
+run = "uv run fastapi dev"
+test = "uv run pytest"
+lint = "uv run ruff format . ; uv run ruff check --fix . ; uv run ty check ."
+
+[env]
+BACKEND_URL = "http://localhost:8000"
+DEBUG = true
