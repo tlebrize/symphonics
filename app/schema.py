@@ -7,7 +7,7 @@ from app.settings import settings
 def migrate(db):
     db.create_table(
         bigquery.Table(
-            db.dataset(settings.DB_DATASET).table("usage"),
+            f'symphonics-test.{settings.DB_DATASET}.usage',
             schema=[
                 bigquery.SchemaField("devId", t.STRING, mode="REQUIRED"),
                 bigquery.SchemaField("productId", t.STRING, mode="REQUIRED"),
@@ -20,4 +20,4 @@ def migrate(db):
 
 
 def destroy(db):
-    db.delete_table(db.dataset(settings.DB_DATASET).table("usage"))
+    db.delete_table(f'symphonics-test.{settings.DB_DATASET}.usage')

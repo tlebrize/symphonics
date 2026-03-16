@@ -9,3 +9,5 @@
 - [ ] report
 - [ ] benchmarks
 - [ ] optimisations
+
+## Notes
