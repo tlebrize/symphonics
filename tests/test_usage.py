@@ -48,8 +48,8 @@ def test_usage_report(usage_service, large_message):
 
     report = usage_service.report()
 
-    assert report['1970-01-01']['01:00'] == 100
-    assert report['1970-01-01']['12:00'] == 4500
-    assert report['1970-01-01']['23:00'] == 8900
-    assert report['1970-01-02']['00:00'] == 9300
-    assert report['1970-01-02']['08:00'] == 12500
+    assert report["1970-01-01"]["01:00"] == 100
+    assert report["1970-01-01"]["12:00"] == 4500
+    assert report["1970-01-01"]["23:00"] == 8900
+    assert report["1970-01-02"]["00:00"] == 9300
+    assert report["1970-01-02"]["08:00"] == 12500

@@ -15,10 +15,7 @@ async def message(data: MessageModel, db=Depends(get_db)):
 
 @router.post("/send")
 async def send(data: SendModel, publisher=Depends(get_publisher)):
-    DeviceService(publisher).switch(
-        switch=data.switch,
-        devId=data.devId
-    )
+    DeviceService(publisher).switch(switch=data.switch, devId=data.devId)
     return data
 
 

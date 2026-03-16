@@ -39,6 +39,6 @@ class UsageService:
             GROUP BY date, hour
             ORDER BY date, hour
         """):
-            data[row.date][f'{row.hour}:00'] = row.value
+            data[row.date][f"{row.hour}:00"] = row.value
 
         return data

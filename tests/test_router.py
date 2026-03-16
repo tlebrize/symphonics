@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.fixture()
 def message():
     return {
@@ -41,6 +42,7 @@ async def test_send_valid(client):
 async def test_send_invalid(client):
     response = client.post("/send", json={"switch": "Yes please", "devId": "123"})
     assert response.status_code == 422
+
 
 async def test_report(client):
     response = client.get("/report")
