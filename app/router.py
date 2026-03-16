@@ -1,7 +1,10 @@
 from enum import Enum
 from typing import List
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
+
+from app.database import get_db
+from app.services import MessageService
 
 
 router = APIRouter()
@@ -33,8 +36,8 @@ class MessageModel(BaseModel):
 
 
 @router.post("/message")
-async def message(data: MessageModel):
-    return data
+async def message(data: MessageModel, db=Depends(get_db)):
+    return MessageService(db).save(data)
 
 
 class SendModel(BaseModel):

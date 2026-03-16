@@ -3,8 +3,8 @@
 ## TODO
 - [x] project setup
 - [x] router
-- [ ] gcp setup
-- [ ] database
+- [x] gcp setup
+- [x] database
 - [ ] pub/sub
 - [ ] report
 - [ ] benchmarks

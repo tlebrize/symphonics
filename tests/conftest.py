@@ -3,6 +3,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app import init
+from app.database import get_db
+from app.schema import migrate, destroy
 
 
 @pytest.fixture()
@@ -35,3 +37,11 @@ def message_fixture():
         },
         "ts": 0,
     }
+
+
+@pytest.fixture(scope="session")
+def db_client():
+    db = get_db()
+    migrate(db)
+    yield db
+    destroy(db)
