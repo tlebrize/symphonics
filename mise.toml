@@ -1,0 +1,19 @@
+[tools]
+python = "3.13"
+uv = "latest"
+
+[tasks]
+run = "uv run fastapi dev"
+lint = "uv run ruff format . ; uv run ruff check --fix . ; uv run ty check ."
+
+[tasks.test]
+env = { TEST = "true" }
+run = "uv run pytest"
+
+[env]
+BACKEND_URL = "http://localhost:8000"
+DEBUG = true
+GOOGLE_APPLICATION_CREDENTIALS = ".gcp-credentials.json"
+DB_DATASET = "dev"
+PUBSUB_TOPIC = "send_command"
+TEST = false
