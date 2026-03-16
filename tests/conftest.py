@@ -26,20 +26,23 @@ def event_loop(request):
     loop.close()
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def db_client():
     db = get_db()
     migrate(db)
     yield db
     destroy(db)
 
+
 @pytest.fixture()
 def usage_service(db_client):
     return UsageService(db_client)
 
+
 @pytest.fixture(scope="session", autouse=True)
 def publisher_client():
     return get_publisher()
+
 
 @pytest.fixture()
 def device_service(publisher_client):

@@ -10,7 +10,6 @@ class Settings(BaseSettings):
     TEST: bool = False
 
 
-
 class TestSettings:
     BACKEND_URL = "http://localhost:9000"
     DB_DATASET = "test"

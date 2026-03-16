@@ -6,7 +6,7 @@
 - [x] gcp setup
 - [x] database
 - [x] pub/sub
-- [ ] report
+- [x] report
 - [ ] benchmarks
 - [ ] optimisations
 

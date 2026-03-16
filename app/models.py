@@ -2,6 +2,7 @@ from enum import Enum
 from typing import List
 from pydantic import BaseModel
 
+
 class PropertyCode(Enum):
     temp_interior = "temp_interior"
     instant_power = "instant_power"
@@ -25,6 +26,7 @@ class MessageModel(BaseModel):
     bizCode: str
     bizData: MessageDataModel
     ts: int
+
 
 class SendModel(BaseModel):
     switch: bool
